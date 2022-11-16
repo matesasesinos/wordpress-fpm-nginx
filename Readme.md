@@ -1,0 +1,3 @@
+# Instrucciones
+
+Crear la imagen 

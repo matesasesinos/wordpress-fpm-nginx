@@ -1,0 +1,13 @@
+version: '3.1'
+
+services:
+  php-cito:
+    build: 
+      context: .
+    ports:
+      - "8381:8080"
+    volumes:
+      - app:/var/www/html
+
+volumes:
+  app:
