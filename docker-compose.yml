@@ -65,4 +65,5 @@ services:
 volumes:
   html:
   config:
-  mysql: 
+  mysql:
+  certs:

@@ -17,3 +17,15 @@ Para las versiones de **WordPress** tener en cuenta que deben ser **FPM**, si es
 Se utiliza MySQL >=8.0
 
 Se utiliza PHP 8.0 porque para la versión 8.1 de php todavía WordPress esta en beta y puede generar errores.
+
+### Dominios locales
+
+Se puede trabajar con un dominio local, por ejemplo *http://miweb.test* agregando en el archivo host de su SO lo siguiente:
+
+127.0.0.1      miweb.test
+
+Luego desde el navegador podemos acceder utilizando *http://miweb.test:5300* donde **5300** es el puerto que pusimos en el .env en la variable **NGINX_PORT**, si en esta variable usamos el puerto 80, no es necesario poner el puerto al dominio.
+
+### Archivo "host"
+
+En Windows encontramos el archivo en *C:\Windows\System32\drivers\etc* necesitamos permisos de administración para modificarlo.
