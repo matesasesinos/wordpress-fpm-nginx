@@ -1,0 +1,25 @@
+{
+    "require": {
+        "johnpbloch/wordpress": ">=5.4"
+    },
+    "config": {
+        "allow-plugins": {
+            "johnpbloch/wordpress-core-installer": true
+        }
+    },
+    "extra": {
+        "installer-paths": {
+            "wp-content/plugins/{$name}/": [
+                "type:wordpress-plugin"
+            ],
+            "wp-content/themes/{$name}/": [
+                "type:wordpress-theme"
+            ]
+        },
+        "wordpress-install-dir": "wordpress"
+    },
+    "repositories": [{
+        "type": "composer",
+        "url": "https://wpackagist.org"
+    }]
+}

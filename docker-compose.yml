@@ -1,13 +1,53 @@
 version: '3.1'
 
 services:
-  php-cito:
+  # PHP FPM with Dockerfile (don't use ports, that part is on the web server)
+  php-fpm:
     build: 
       context: .
-    ports:
-      - "8381:8080"
+      args:
+        php_version: ${PHP_VERSION}
+    image: ${IMAGE_NAME}
+    container_name: php-fpm
     volumes:
-      - app:/var/www/html
+      - ./html:/var/www/html
+    environment:
+      - MYSQL_HOST=${MYSQL_HOST}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_CHARSET=${MYSQL_CHARSET}
+
+  # MySQL
+  mysql:
+    image: mysql:${MYSQL_VERSION}
+    restart: always
+    command: --default-authentication-plugin=caching_sha2_password
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    ports:
+      - "${MYSQL_PORT}:3306"
+    volumes:
+      - ./mysql:/var/lib/mysql
+
+  # Nginx para servidor Web  
+  web:
+    image: nginx:${NGINX_VERSION}
+    ports:
+      - "${NGINX_PORT}:80"
+    volumes:
+      - ./html:/var/www/html
+      - ./config/default.conf:/etc/nginx/conf.d/default.conf # Server conf
+    container_name: matecito-nginx
+    links:
+      - php-fpm
+    depends_on:
+      - php-fpm
 
 volumes:
-  app:
+  html:
+  config:
+  mysql: 
