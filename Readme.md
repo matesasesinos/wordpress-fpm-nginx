@@ -1,4 +1,4 @@
-# Instrucciones
+# Instrucciones (Nginx + PHP 8.0)
 
 ### Importante
 
