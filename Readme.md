@@ -1,4 +1,4 @@
-# Instrucciones (Nginx + PHP 8.0)
+# WordPress (Nginx + PHP 8.0 + Redis)
 
 ### Importante
 
@@ -17,6 +17,10 @@ Para las versiones de **WordPress** tener en cuenta que deben ser **FPM**, si es
 Se utiliza MySQL >=8.0
 
 Se utiliza PHP 8.0 porque para la versión 8.1 de php todavía WordPress esta en beta y puede generar errores.
+
+### Redis
+
+Para hacer funcionar redis tenemos que instalar un plugin (una vez hecha la instalación del plugin) **[Redis Cache](https://wordpress.org/plugins/redis-cache)**, en la parte de configuración (no importa si muetra "el dependiente no esta instalado") simplemente hacer click en Activar Cache de Objetos y redis comienza a funcionar.
 
 ### Dominios locales
 
