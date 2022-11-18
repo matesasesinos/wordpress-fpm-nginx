@@ -2,7 +2,7 @@
 
 ### Importante
 
-La imagen esta construida para utilizar con Docker Desktop **NO WSL**, los volumenes se crean dentro de la carpeta donde se ejecute. En caso de usar **WSL** o **WSL2** se debe cambiar la ruta de los volumenes en *docker-compose.yml* quitando "./" de cada una de las opciones de volumenes.
+La imagen esta construida para utilizar con Docker Desktop **NO WSL**, los volumenes se crean dentro de la carpeta donde se ejecute. En caso de usar **WSL** o **WSL2** se debe cambiar la ruta de los volumenes en *docker-compose.yml* quitando "./" de las opciones de volumenes de mysql (los demás andan sin problema).
 
 Ejecutar **docker compose up**
 
