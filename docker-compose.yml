@@ -75,6 +75,21 @@ services:
     depends_on:
       - mysql
 
+  wpcli:
+    container_name: ${CLI}-cli
+    depends_on:
+      - php-fpm
+    image: wordpress:cli
+    user: 1000:1000
+    command: tail -f /dev/null
+    volumes:
+      - ./html:/var/www/html
+    environment:
+      WORDPRESS_DB_HOST: ${MYSQL_HOST}
+      WORDPRESS_DB_USER: ${MYSQL_USER}
+      WORDPRESS_DB_PASSWORD: ${MYSQL_PASSWORD}
+      WORDPRESS_DB_NAME: ${MYSQL_DATABASE}
+
 volumes:
   html:
   config:
