@@ -1,5 +1,7 @@
 # WordPress (Nginx + PHP 8.0 + Redis)
 
+Esta imagen no esta lista para producción, si miran el docker-compose.yml veran que esta para dev solamente ya que tiene configuraciones básicas activas que no deberían estar activas (por ejemplo el debug), si se usa para producción es bajo su propio riesgo. Les recomiendo pasarsela a un **devops** para que la revise y optimice.
+
 ### Importante
 
 La imagen esta construida para utilizar con Docker Desktop **NO WSL**, los volumenes se crean dentro de la carpeta donde se ejecute. En caso de usar **WSL** o **WSL2** se debe cambiar la ruta de los volumenes en *docker-compose.yml* quitando "./" de las opciones de volumenes de mysql (los demás andan sin problema).
